@@ -24,14 +24,14 @@ export class Volume {
   public data;
   public spacing;
   public offset;
-  public matrix: THREE.Matrix3;
+  public matrix;
   public inverseMatrix: THREE.Matrix4;
   private sliceList: any[];
   public min;
   public max;
   public RASDimensions;
 
-  constructor(xLength, yLength, zLength, type, arrayBuffer) {
+  constructor(xLength?, yLength?, zLength?, type?, arrayBuffer?) {
 
     if (arguments.length > 0) {
       /**
@@ -349,7 +349,7 @@ export class Volume {
       argumentsWithInversion = ['volume.xLength-1-', 'volume.yLength-1-', 'volume.zLength-1-'],
       argArray = [iDirection, jDirection, kDirection].map(function (direction, n) {
 
-        return (direction.dot(base[n]) > 0 ? '' : argumentsWithInversion[n]) + (direction === axisInIJK ? 'IJKIndex' : direction.arglet);
+        return (direction.dot(base[n]) > 0 ? '' : argumentsWithInversion[n]) + (direction === axisInIJK ? 'IJKIndex' : direction['arglet']);
 
       });
     const argString = argArray.join(',');

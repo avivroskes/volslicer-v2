@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as THREE from 'three';
-import * as MRCLoader from '../../lib/loaders/MRCLoader';
+import { MRCDataLoader} from '../../lib/loaders/MRCLoader';
 
 @Component({
   selector: 'app-top-renderer',
@@ -62,7 +62,7 @@ export class TopRendererComponent implements OnInit {
     this.dirLight.position.set(200, 200, 1000).normalize();
     this.sceneX.add(this.dirLight);
     const manager = new THREE.LoadingManager();
-    const loader = new MRCLoader(manager);
+    const loader = new MRCDataLoader(manager);
 
     console.log('Manager is ready');
 
